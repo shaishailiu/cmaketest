@@ -6,7 +6,12 @@ project (hello)
 
 #set(SOURCES helloworld.cpp math/MathFunctions.cpp)
 
-file(GLOB SOURCES "*.cpp" "*/*.h" "*/*.cpp")
+#file(GLOB SOURCES "*.cpp" "*/*.h" "*/*.cpp")
+
+set ( PROJECT_LINK_LIBS libmath.a )
+link_directories( build )
+
+file(GLOB SOURCES "helloworld.cpp")
 
 function(assign_source_group)
     if(MSVC)
@@ -32,3 +37,5 @@ endfunction(group_vs)
 group_vs(${SOURCES})
 
 add_executable(hello ${SOURCES})
+
+target_link_libraries(hello ${PROJECT_LINK_LIBS} )
