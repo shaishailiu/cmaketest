@@ -8,8 +8,7 @@ project (hello)
 
 #file(GLOB SOURCES "*.cpp" "*/*.h" "*/*.cpp")
 
-set ( PROJECT_LINK_LIBS libmath.a )
-link_directories( build )
+add_subdirectory(math)
 
 file(GLOB SOURCES "helloworld.cpp")
 
@@ -38,4 +37,4 @@ group_vs(${SOURCES})
 
 add_executable(hello ${SOURCES})
 
-target_link_libraries(hello ${PROJECT_LINK_LIBS} )
+target_link_libraries(hello mathlib)
