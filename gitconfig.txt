@@ -1,0 +1,7 @@
+Host github.com
+ProxyCommand connect -S 103.118.43.65:10888 %h %p # -SΪsocks
+HostName %h
+Port 22
+User git
+IdentityFile  ~/.ssh/id_rsa 
+IdentitiesOnly yes
